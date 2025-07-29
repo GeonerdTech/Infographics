@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CMS Uploader - NewsGrid</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Upload Image to NewsGrid</h1>
+    <form id="upload-form">
+      <label>Image URL:</label>
+      <input type="url" id="imageUrl" placeholder="https://..." required />
+
+      <label>Category:</label>
+      <input type="text" id="category" placeholder="e.g. World, Tech" required />
+
+      <button type="submit">Upload</button>
+      <p id="status"></p>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
