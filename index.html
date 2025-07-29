@@ -1,31 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CMS Uploader - NewsGrid by GeoNerd</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NewsGrid CMS Uploader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #00bcd4;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0097a7;
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <h1>📤 Upload to NewsGrid</h1>
+  <form id="uploadForm">
+    <input type="text" id="imageUrl" placeholder="Image URL" required />
+    <input type="text" id="category" placeholder="Category" required />
+    <button type="submit">Upload</button>
+    <div id="status"></div>
+  </form>
 
-  <div class="container">
-    <h1>📰 NewsGrid CMS Uploader</h1>
+  <script>
+    const form = document.getElementById('uploadForm');
+    const statusDiv = document.getElementById('status');
 
-    <form id="uploadForm">
-      <label for="image">Image URL</label>
-      <input type="url" id="image" required placeholder="https://example.com/image.jpg" />
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const imageUrl = document.getElementById('imageUrl').value.trim();
+      const category = document.getElementById('category').value.trim();
 
-      <label for="category">Category</label>
-      <input type="text" id="category" required placeholder="e.g. World, Tech" />
+      if (!imageUrl || !category) {
+        statusDiv.textContent = "❌ Both fields are required.";
+        return;
+      }
 
-      <label for="password">Password</label>
-      <input type="password" id="password" required placeholder="Editor password" />
+      statusDiv.textContent = "Uploading...";
 
-      <button type="submit">Upload</button>
-      <p id="status"></p>
-    </form>
-  </div>
+      try {
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbwb8z78b3rQ47Ud4SAf-BulalSnfs0p5wQAbwFTHHQDjMp10TRVI2BA7z2XKClNY9OisA/exec",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              imageUrl,
+              category
+            })
+          }
+        );
 
-  <script src="script.js"></script>
+        const text = await response.text();
+        if (text.includes("Success")) {
+          statusDiv.textContent = "✅ Uploaded successfully!";
+          form.reset();
+        } else {
+          statusDiv.textContent = "❌ Error: " + text;
+        }
+      } catch (err) {
+        statusDiv.textContent = "❌ Failed to connect.";
+      }
+    });
+  </script>
 </body>
 </html>
