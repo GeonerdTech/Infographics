@@ -3,20 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CMS Uploader – NewsGrid by GeoNerd</title>
+  <title>NewsGrid by GeoNerd</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>🖼️ Upload News Image</h1>
-    <form id="upload-form">
-      <input type="text" name="imageUrl" placeholder="Image URL" required />
-      <input type="text" name="category" placeholder="Category" required />
-      <input type="password" name="password" placeholder="Enter password" required />
-      <button type="submit">Upload</button>
-    </form>
-    <p id="message"></p>
+
+  <!-- Splash -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <img src="https://i.postimg.cc/MG6vL9vY/Gro.png" class="splash-logo" />
+      <h1>📰 Welcome to<br><span>NewsGrid by GeoNerd</span></h1>
+    </div>
   </div>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="https://i.postimg.cc/MG6vL9vY/Gro.png" class="header-logo">
+    <h2>NewsGrid by GeoNerd</h2>
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+    </select>
+  </header>
+
+  <!-- Gallery -->
+  <div id="gallery" class="masonry"></div>
+  <div id="loader" class="loader"></div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span id="close">&times;</span>
+    <img id="modal-img" class="modal-content" />
+    <button id="prev" class="nav-btn">←</button>
+    <button id="next" class="nav-btn">→</button>
+    <button id="share" class="share-btn">🔗 Share</button>
+  </div>
+
+  <!-- Offline Banner -->
+  <div id="offline-banner">🔌 Please connect to the internet</div>
 
   <script src="script.js"></script>
 </body>
