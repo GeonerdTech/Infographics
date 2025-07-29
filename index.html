@@ -1,45 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NewsGrid by GeoNerd</title>
+  <meta charset="UTF-8">
+  <title>CMS Uploader - NewsGrid by GeoNerd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Splash -->
-  <div id="splash-screen">
-    <div class="splash-content">
-      <img src="https://i.postimg.cc/MG6vL9vY/Gro.png" class="splash-logo" />
-      <h1>📰 Welcome to<br><span>NewsGrid by GeoNerd</span></h1>
-    </div>
+  <div class="container">
+    <h1>📰 NewsGrid CMS Uploader</h1>
+
+    <form id="uploadForm">
+      <label for="image">Image URL</label>
+      <input type="url" id="image" required placeholder="https://example.com/image.jpg" />
+
+      <label for="category">Category</label>
+      <input type="text" id="category" required placeholder="e.g. World, Tech" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required placeholder="Editor password" />
+
+      <button type="submit">Upload</button>
+      <p id="status"></p>
+    </form>
   </div>
-
-  <!-- Header -->
-  <header class="header">
-    <img src="https://i.postimg.cc/MG6vL9vY/Gro.png" class="header-logo">
-    <h2>NewsGrid by GeoNerd</h2>
-    <select id="categoryFilter">
-      <option value="">All Categories</option>
-    </select>
-  </header>
-
-  <!-- Gallery -->
-  <div id="gallery" class="masonry"></div>
-  <div id="loader" class="loader"></div>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <span id="close">&times;</span>
-    <img id="modal-img" class="modal-content" />
-    <button id="prev" class="nav-btn">←</button>
-    <button id="next" class="nav-btn">→</button>
-    <button id="share" class="share-btn">🔗 Share</button>
-  </div>
-
-  <!-- Offline Banner -->
-  <div id="offline-banner">🔌 Please connect to the internet</div>
 
   <script src="script.js"></script>
 </body>
