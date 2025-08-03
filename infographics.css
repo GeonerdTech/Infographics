@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-title img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain;
+}
+
+.logo-title h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #222;
+}
+
+#infographics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.tile {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+}
+
+.tile img {
+  width: 100%;
+  height: auto;
+}
+
+.tile-title {
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-content {
+  position: relative;
+  text-align: center;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.nav {
+  margin-top: 1rem;
+}
+
+.nav button {
+  background: #fff;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  border-radius: 6px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
