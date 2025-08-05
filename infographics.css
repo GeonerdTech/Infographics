@@ -19,8 +19,8 @@ header {
 }
 
 .logo-title img {
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -83,6 +83,7 @@ header {
   max-width: 90vw;
   max-height: 80vh;
   border-radius: 8px;
+  transition: opacity 0.3s ease;
 }
 
 .nav {
